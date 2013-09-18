@@ -3,7 +3,7 @@ class Url < ActiveRecord::Base
   validates :long_url, presence: true
   validates :long_url, uniqueness: true
 
-  before_save :shorten
+  before_create :shorten
 
   def shorten
     temp_ary = []

@@ -1,16 +1,25 @@
 <div class="container">
-  <div class="form_container"
-    <form action="/urls" method="post">
+  <div class="form_container">
+    <form action="/urls" method="POST">
       <label for="long_url">Long URL: </label>
       <input class="url_input" id="long_url" type="text" name="long_url">
       <input class="submit_button" type="submit" value="Shorten">
     </form>
   </div>
+  <% if @message %>
+    <div class="message">
+      <p><%= @message %></p>
+    </div>
+  <% end %>
   <% if @urls %>
     <div class="url_list_container">
       <ul>
         <% @urls.each do |url| %>
-
+          <li>
+            <p><%= url.long_url %></p>
+            <p><%= url.short_url %></p>
+            <p><%= url.click_count%></p>
+          </li>
         <% end %>
       </ul>
     </div>
