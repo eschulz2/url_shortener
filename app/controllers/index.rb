@@ -1,5 +1,6 @@
 
 get '/' do
+  # if there are any urls, set the @urls variable with their contents
   # let user create new short URL, display a list of shortened URLs
   erb :index
 end
