@@ -1,4 +1,11 @@
 <div class="container">
+  <% if @user %>
+    <div class="logged_in_header">
+      <p>Welcome, <%= @user.first_name %></p>
+      <a href="/logout">Logout</a>
+    </div>
+  <% end %>
+
   <div class="form_container">
     <form action="/urls" method="POST">
       <label for="long_url">Long URL: </label>
@@ -13,11 +20,13 @@
       </form>
     <% end %>
   </div>
-  <% if @message %>
+
+  <% if session[:message] %>
     <div class="message">
-      <p><%= @message %></p>
+      <p><%= session[:message] %></p>
     </div>
   <% end %>
+
   <% if @urls %>
     <div class="url_list_container">
       <ul>
@@ -26,6 +35,7 @@
             <p><%= url.long_url %></p>
             <p><%= url.short_url %></p>
             <p><%= url.click_count%></p>
+            <p><%= url.user_id %></p>
           </li>
         <% end %>
       </ul>

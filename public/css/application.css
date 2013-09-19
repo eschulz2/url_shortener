@@ -26,3 +26,16 @@
 th {
   text-align: left;
 }
+
+.message {
+  width: 450px;
+  
+}
+
+.url_list_container {
+
+}
+
+.url_list_container ul li {
+  list-style: none;
+}
