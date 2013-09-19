@@ -5,6 +5,13 @@
       <input class="url_input" id="long_url" type="text" name="long_url">
       <input class="submit_button" type="submit" value="Shorten">
     </form>
+    <% if @user %>
+      <p><%= @user.first_name %></p>
+    <% else %>
+      <form action="/login" method="get">
+        <input class="submit_button" type="submit" value="Login/ Create Profile">
+      </form>
+    <% end %>
   </div>
   <% if @message %>
     <div class="message">

@@ -3,6 +3,8 @@ class Url < ActiveRecord::Base
   validates :long_url, presence: true
   validates :long_url, uniqueness: true
 
+  belongs_to :user
+
   before_create :shorten
 
   def shorten
